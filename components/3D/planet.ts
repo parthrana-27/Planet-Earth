@@ -1,4 +1,3 @@
-import { GSP_NO_RETURNED_VALUE } from "next/dist/lib/constants";
 import * as THREE from "three"
 import earthVertex from "./shaders/earth/vertex.glsl"
 import earthFragment from "./shaders/earth/fragment.glsl"
@@ -6,8 +5,7 @@ import atmosphereVertex from "./shaders/atmosphere/vertex.glsl"
 import atmosphereFragment from "./shaders/atmosphere/fragment.glsl"
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-const initPlanet3D = ({ rotationSpeed = 0.2 }: { rotationSpeed?: number } = {}): { scene: THREE.Scene } => {
-    const canvas = document.querySelector('canvas.planet-3D') as HTMLCanvasElement
+const initPlanet3D = (canvas: HTMLCanvasElement, { rotationSpeed = 0.2 }: { rotationSpeed?: number } = {}): { scene: THREE.Scene, destroy: () => void } => {
 
     // scene
     const scene = new THREE.Scene()
@@ -127,13 +125,15 @@ const initPlanet3D = ({ rotationSpeed = 0.2 }: { rotationSpeed?: number } = {}):
     earthMaterial.uniforms.uSunDirection.value.copy(sunDirection);
     atmosphereMaterial.uniforms.uSunDirection.value.copy(sunDirection);
     // animation loop
-    gsap.ticker.add((time, deltaTime) => {
+    const tick = (time: number, deltaTime: number) => {
         const dt = deltaTime ? deltaTime / 1000 : 0.016;
         earth.rotation.y += dt * rotationSpeed;
         renderer.render(scene, camera)
-    })
+    }
+    gsap.ticker.add(tick)
     gsap.ticker.lagSmoothing(0)
-    window.addEventListener('resize', () => {
+
+    const handleResize = () => {
         // Update sizes
         size.width = window.innerWidth;
         size.height = window.innerHeight;
@@ -146,9 +146,28 @@ const initPlanet3D = ({ rotationSpeed = 0.2 }: { rotationSpeed?: number } = {}):
         // Update renderer
         renderer.setSize(size.width, size.height);
         renderer.setPixelRatio(size.pixelRatio);
-    })
+    }
+    window.addEventListener('resize', handleResize)
 
-    return { scene };
+    return {
+        scene,
+        destroy: () => {
+            gsap.ticker.remove(tick);
+            window.removeEventListener('resize', handleResize);
+            renderer.dispose();
+            // Kill ScrollTriggers created in this function
+            const triggers = ScrollTrigger.getAll();
+            triggers.forEach(trigger => {
+                // Check if the trigger is related to our elements (optional heuristic, or just kill all if safe)
+                // For this scoped component, killing all might be aggressive if there are others, 
+                // but typically explicit creation implies ownership. 
+                // However, simpler is safe:
+                if (trigger.vars.trigger === '.hero_main') {
+                    trigger.kill();
+                }
+            });
+        }
+    };
 };
 
 export default initPlanet3D;
