@@ -1,0 +1,36 @@
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.textContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.greeting {
+    font-family: var(--inter), sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+    color: #000000 !important;
+    position: absolute;
+    /* opacity and transform handled by GSAP */
+    white-space: nowrap;
+    z-index: 10000;
+}
+
+/* Optional: specific fonts for non-latin scripts if needed, 
+   but standard system fonts usually handle them well enough for this scope. 
+   If not, the generic sans-serif fallback will catch it. */
