@@ -7,7 +7,11 @@ import styles from './style.module.css';
 const greetings = [
     "Hello",
     "नमस्ते",
-    "নমস্কার",
+    "Hola",
+    "Bonjour",
+    "Ciao",
+    "你好",
+    "こんにちわ",
     "నమస్కారం",
     "வணக்கம்",
     "ਸਤ ਸ੍ਰੀ ਅਕਾਲ"
@@ -37,13 +41,13 @@ export default function Preloader({ onComplete }: PreloaderProps) {
                 tl.to(el, {
                     autoAlpha: 1,
                     y: 0,
-                    duration: 0.1,
-                    ease: "power2.out",
+                    duration: 0.2,
+                    ease: "power1.out",
                 })
                     .to(el, {
                         autoAlpha: 0,
                         y: -10,
-                        duration: 0.4,
+                        duration: 0.0,
                         ease: "power2.in",
                     }, "+=0.2");
             });

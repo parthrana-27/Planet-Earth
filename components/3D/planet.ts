@@ -5,12 +5,19 @@ import atmosphereVertex from "./shaders/atmosphere/vertex.glsl"
 import atmosphereFragment from "./shaders/atmosphere/fragment.glsl"
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-const initPlanet3D = (canvas: HTMLCanvasElement, { rotationSpeed = 0.2 }: { rotationSpeed?: number } = {}): { scene: THREE.Scene, destroy: () => void } => {
+
+const initPlanet3D = (canvas: HTMLCanvasElement, { rotationSpeed = 0.2 }: { rotationSpeed?: number } = {}): {
+    scene: THREE.Scene,
+    camera: THREE.PerspectiveCamera,
+    earthGroup: THREE.Group,
+    stars: THREE.Points,
+    destroy: () => void
+} => {
 
     // scene
     const scene = new THREE.Scene()
 
-    // camera 
+    // camera
     const size = {
         width: window.innerWidth,
         height: window.innerHeight,
@@ -18,11 +25,11 @@ const initPlanet3D = (canvas: HTMLCanvasElement, { rotationSpeed = 0.2 }: { rota
     }
 
     const camera = new THREE.PerspectiveCamera(15, size.width / size.height, 0.1, 10000)
-    camera.position.set(0, 2.15, 4.5)
+    camera.position.set(0, 0, 15)
     scene.add(camera)
 
     // renderer
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
 
     renderer.setSize(size.width, size.height)
     renderer.setPixelRatio(size.pixelRatio)
@@ -82,52 +89,59 @@ const initPlanet3D = (canvas: HTMLCanvasElement, { rotationSpeed = 0.2 }: { rota
     const earthGroup = new THREE.Group();
     earthGroup.add(earth);
     earthGroup.add(atmosphere);
+    // Hero Section Initial State
+    earthGroup.scale.set(2, 2, 2);
+    earthGroup.position.y = -3;
     scene.add(earthGroup);
 
-    gsap.registerPlugin(ScrollTrigger);
-    gsap
-        .timeline({
-            scrollTrigger: {
-                trigger: '.hero_main',
-                start: () => 'top top',
-                scrub: 3,
-                pin: true,
-                anticipatePin: 1,
-            }
-        })
-        .to(
-            ".hero_main .content",
-            {
-                filter: "blur(40px)",
-                autoAlpha: 0,
-                scale: 0.5,
-                duration: 2,
-                ease: "power3.inOut"
-            },
-            "setting",
-        )
-        .to(
-            camera.position,
-            {
-                x: window.innerWidth > 768 ? 0 : 0.1,
-                y: 0.1,
-                z: window.innerWidth > 768 ? 19 : 30,
-                duration: 2,
-                ease: "power3.inOut"
-            },
-            "setting",
-        );
+    // Stars
+    const starsGeometry = new THREE.BufferGeometry();
+    const count = 2000;
+    const positions = new Float32Array(count * 3);
+    for (let i = 0; i < count * 3; i++) {
+        positions[i] = (Math.random() - 0.5) * 50; // Spread stars wide
+    }
+    starsGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const starsMaterial = new THREE.PointsMaterial({
+        size: 0.05,
+        sizeAttenuation: true,
+        color: 0xffffff,
+        transparent: true,
+        opacity: 0, // Start hidden, fade in later
+    });
+    const stars = new THREE.Points(starsGeometry, starsMaterial);
+    scene.add(stars);
 
+
+    // Mouse interaction
+    const mouse = { x: 0, y: 0 };
+    const handleMouseMove = (e: MouseEvent) => {
+        mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+
+    // Initial sun position
     let sunSpherical = new THREE.Spherical(1, Math.PI * 0.48, -1.8);
     const sunDirection = new THREE.Vector3();
 
     sunDirection.setFromSpherical(sunSpherical);
     earthMaterial.uniforms.uSunDirection.value.copy(sunDirection);
     atmosphereMaterial.uniforms.uSunDirection.value.copy(sunDirection);
+
     // animation loop
     const tick = (time: number, deltaTime: number) => {
         const dt = deltaTime ? deltaTime / 1000 : 0.016;
         earth.rotation.y += dt * rotationSpeed;
+
+        // Smooth mouse rotation
+        gsap.to(earthGroup.rotation, {
+            x: -mouse.y * 0.3,
+            y: mouse.x * 0.5,
+            duration: 2,
+            ease: "power2.out"
+        });
+
         renderer.render(scene, camera)
     }
     gsap.ticker.add(tick)
@@ -151,21 +165,14 @@ const initPlanet3D = (canvas: HTMLCanvasElement, { rotationSpeed = 0.2 }: { rota
 
     return {
         scene,
+        camera,
+        earthGroup,
+        stars,
         destroy: () => {
             gsap.ticker.remove(tick);
             window.removeEventListener('resize', handleResize);
+            window.removeEventListener('mousemove', handleMouseMove);
             renderer.dispose();
-            // Kill ScrollTriggers created in this function
-            const triggers = ScrollTrigger.getAll();
-            triggers.forEach(trigger => {
-                // Check if the trigger is related to our elements (optional heuristic, or just kill all if safe)
-                // For this scoped component, killing all might be aggressive if there are others, 
-                // but typically explicit creation implies ownership. 
-                // However, simpler is safe:
-                if (trigger.vars.trigger === '.hero_main') {
-                    trigger.kill();
-                }
-            });
         }
     };
 };

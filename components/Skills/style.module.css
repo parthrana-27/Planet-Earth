@@ -1,0 +1,53 @@
+.skillsSection {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--section-spacing) 5%;
+    color: var(--color-text-main);
+    z-index: 2;
+}
+
+.sectionTitle {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-hero);
+    background: linear-gradient(90deg, #ffffff, #808080);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.content {
+    text-align: center;
+    max-width: 800px;
+}
+
+.cloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.tag {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(var(--glass-blur));
+    border-radius: 2rem;
+    transition: transform 0.3s ease, background 0.3s ease;
+    cursor: default;
+}
+
+.tag:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 15px rgba(51, 102, 153, 0.3);
+}

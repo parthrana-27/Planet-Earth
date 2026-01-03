@@ -1,0 +1,48 @@
+:root {
+    --color-bg-dark: #0b0d17;
+    --color-bg-light: #f0f4f8;
+    /* Backup for light mode if needed, though user wants space theme generally */
+
+    --color-text-main: #ffffff;
+    --color-text-muted: #a0a0c0;
+
+    --color-primary: #336699;
+    --color-secondary: #6699cc;
+    --color-accent-dark: #000033;
+    --color-accent-mid: #333366;
+
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-blur: 10px;
+
+    --font-hero: var(--font-nunito-sans), sans-serif;
+    --font-body: var(--font-nunito-sans), sans-serif;
+
+    --section-spacing: 100px;
+}
+
+[data-theme='light'] {
+    /* If we strictly enforce space theme, light mode might just be a brighter version or map to the same deep space values 
+    For now, keeping it dark-centric as per "Space Theme" request 
+ */
+    --color-bg-dark: #f0f4f8;
+    --color-text-main: #1a1a2e;
+    --color-text-muted: #555;
+}
+
+body {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-main);
+    font-family: var(--font-body);
+    margin: 0;
+    /* consistent reset */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-hero);
+}
