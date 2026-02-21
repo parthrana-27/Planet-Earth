@@ -12,8 +12,8 @@
     transform: translateY(-100%);
     opacity: 0;
     /* Initially hidden if handled by parent, or styled to look transparent */
-    backdrop-filter: blur(10px);
-    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(var(--glass-blur));
+    background: var(--glass-bg);
 }
 
 /* We might wan't to hide it on hero initially, but the component itself 

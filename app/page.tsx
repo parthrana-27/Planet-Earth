@@ -25,6 +25,13 @@ export default function Home() {
     // Initialize 3D scene
     const { scene, camera, earthGroup, stars, destroy } = initPlanet3D(canvasRef.current);
 
+    // Hero Reveal Animation
+    const heroTl = gsap.timeline({ delay: 0.5 });
+    heroTl.from(".hero-title", { opacity: 0, y: 100, duration: 1.5, ease: "power4.out" })
+      .from(".hero-subtitle", { opacity: 0, y: 20, duration: 1, ease: "power3.out" }, "-=1")
+      .from(".hero-cta", { opacity: 0, scale: 0.8, duration: 1, ease: "back.out(1.7)" }, "-=0.8")
+      .from(".scroll-hint", { opacity: 0, y: -20, duration: 1 }, "-=1");
+
     // Animation Timeline
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -131,13 +138,24 @@ export default function Home() {
           <canvas ref={canvasRef} className={`${styles.planet3D} planet-3D`} suppressHydrationWarning />
         </div>
 
-        <section className={`${styles.heroMain} hero_main`}>
-          <div className={`${styles.content} content`}>
-            <h1>PARTH RANA</h1>
+        <section className="h-screen flex items-center justify-center relative z-10 text-center px-6">
+          <div className="space-y-6 md:space-y-8 max-w-4xl mx-auto">
+            <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold tracking-tighter leading-none bg-gradient-to-b from-gray-900 via-gray-800 to-gray-600 bg-clip-text text-transparent hero-title">
+              PARTH RANA
+            </h1>
+            <p className="text-sm md:text-xl text-gray-500 font-medium max-w-xl mx-auto leading-relaxed hero-subtitle">
+              AI agents that actually bring value to businesses and elevate workers productivity.
+            </p>
+            <div className="flex justify-center hero-cta">
+              <button className="px-8 py-3 bg-gray-900 text-white rounded-full font-bold text-sm md:text-base hover:bg-black transition-all shadow-xl hover:shadow-2xl active:scale-95">
+                Contact Me
+              </button>
+            </div>
           </div>
-          <div className={`${styles.scrollHint} scroll-hint`}>
-            <span>Scroll to Explore</span>
-            <div className={`${styles.arrow} arrow`}>↓</div>
+
+          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-400 scroll-hint">
+            <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold">Scroll to Explore</span>
+            <div className="w-px h-12 bg-gradient-to-b from-gray-400 to-transparent" />
           </div>
         </section>
 

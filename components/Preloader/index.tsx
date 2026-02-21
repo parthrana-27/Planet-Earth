@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import styles from './style.module.css';
+import { cn } from "@/lib/utils";
 
 const greetings = [
     "Hello",
@@ -27,51 +27,53 @@ export default function Preloader({ onComplete }: PreloaderProps) {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Curtain reveal effect
             const tl = gsap.timeline({
                 onComplete: () => {
                     onComplete();
                 }
             });
 
-            // Cycle greetings
-            gsap.set(textRefs.current, { autoAlpha: 0, y: 10 });
+            gsap.set(textRefs.current, { opacity: 0, y: 20 });
+
             textRefs.current.forEach((el, i) => {
                 if (!el) return;
                 tl.to(el, {
-                    autoAlpha: 1,
+                    opacity: 1,
                     y: 0,
-                    duration: 0.2,
+                    duration: 0.15,
                     ease: "power1.out",
                 })
                     .to(el, {
-                        autoAlpha: 0,
-                        y: -10,
-                        duration: 0.0,
+                        opacity: 0,
+                        y: -20,
+                        duration: 0.1,
                         ease: "power2.in",
-                    }, "+=0.2");
+                    }, "+=0.15");
             });
 
-            // Slide up to reveal
             tl.to(containerRef.current, {
                 yPercent: -100,
-                duration: 1.2,
+                duration: 1,
                 ease: "power4.inOut",
             });
 
-            tl.timeScale(1.8);
+            tl.timeScale(1.5);
         }, containerRef);
 
         return () => ctx.revert();
     }, [onComplete]);
 
     return (
-        <div className={styles.preloader} ref={containerRef} suppressHydrationWarning>
-            <div className={styles.textContainer}>
+        <div
+            ref={containerRef}
+            className="fixed inset-0 z-[9999] bg-white flex items-center justify-center overflow-hidden"
+            suppressHydrationWarning
+        >
+            <div className="relative text-center h-20 flex items-center justify-center">
                 {greetings.map((greet, index) => (
                     <span
                         key={index}
-                        className={styles.greeting}
+                        className="absolute text-2xl md:text-5xl font-black text-black tracking-tighter opacity-0"
                         ref={(el: HTMLSpanElement | null) => {
                             if (textRefs.current) {
                                 textRefs.current[index] = el;

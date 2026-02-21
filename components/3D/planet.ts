@@ -91,7 +91,7 @@ const initPlanet3D = (canvas: HTMLCanvasElement, { rotationSpeed = 0.2 }: { rota
     earthGroup.add(atmosphere);
     // Hero Section Initial State
     earthGroup.scale.set(2, 2, 2);
-    earthGroup.position.y = -3;
+    earthGroup.position.y = -4.5;
     scene.add(earthGroup);
 
     // Stars
