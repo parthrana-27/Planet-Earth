@@ -13,8 +13,9 @@ body {
 }
 
 body {
-  color: black;
-  background: white;
+  max-width: 100vw;
+  overflow-x: hidden;
+  scrollbar-width: none;
 }
 
 * {

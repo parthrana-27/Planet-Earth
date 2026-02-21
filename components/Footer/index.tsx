@@ -1,23 +1,69 @@
 import React from 'react';
 import { cn } from "@/lib/utils";
+import {
+    FaGithub,
+    FaLinkedin,
+    FaInstagram,
+    FaEnvelope
+} from 'react-icons/fa';
+import {
+    SiLeetcode,
+    SiCodeforces,
+    SiCodechef
+} from 'react-icons/si';
 
 const Footer = () => {
+    const socials = [
+        { icon: FaGithub, href: "https://github.com/parthrana-27", label: "GitHub" },
+        { icon: FaLinkedin, href: "https://www.linkedin.com/in/parth-rana-a9958a287/", label: "LinkedIn" },
+        { icon: FaEnvelope, href: "mailto:ranaparth296@gmail.com", label: "Mail" },
+        { icon: SiLeetcode, href: "https://leetcode.com/u/parth296/", label: "LeetCode" },
+        { icon: SiCodeforces, href: "https://codeforces.com/profile/ranaparth296", label: "Codeforces" },
+        { icon: FaInstagram, href: "https://www.instagram.com/_.pparthhh/", label: "Instagram" }
+    ];
+
     return (
-        <footer className="relative z-10 py-12 px-[5%] border-t border-white/5 bg-black/20 backdrop-blur-sm flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="flex items-center gap-6">
-                <a href="#" className="text-white/40 hover:text-white transition-colors" aria-label="LinkedIn">
-                    <svg fill="currentColor" viewBox="0 0 16 16" className="w-5 h-5 md:w-6 md:h-6"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.015zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" /></svg>
-                </a>
-                <a href="#" className="text-white/40 hover:text-white transition-colors" aria-label="GitHub">
-                    <svg fill="currentColor" viewBox="0 0 16 16" className="w-5 h-5 md:w-6 md:h-6"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" /></svg>
-                </a>
-                <a href="#" className="text-white/40 hover:text-white transition-colors" aria-label="Mail">
-                    <svg fill="currentColor" viewBox="0 0 16 16" className="w-5 h-5 md:w-6 md:h-6"><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" /></svg>
-                </a>
+        <footer className="relative z-10 py-16 px-[5%] border-t border-white/10 bg-white/10 backdrop-blur-lg mt-20">
+            <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+                <div className="space-y-4">
+                    <div className="text-2xl font-black tracking-tighter text-white">
+                        PR<span className="text-black">.</span>
+                    </div>
+                    <p className="text-sm text-blue-100/40 max-w-xs leading-relaxed">
+                        Computer Engineering student dedicated to crafting intelligent systems and meaningful digital experiences. Let's build the future together.
+                    </p>
+                </div>
+
+                <div className="flex flex-col items-start md:items-end gap-6">
+                    <h3 className="text-xs uppercase tracking-[0.3em] font-black text-white/40">Get in touch</h3>
+                    <div className="flex flex-wrap items-center gap-4 md:gap-6">
+                        {socials.map((social, idx) => (
+                            <a
+                                key={idx}
+                                href={social.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 hover:bg-white/10 transition-all hover:-translate-y-1 active:scale-90"
+                                aria-label={social.label}
+                            >
+                                <social.icon size={18} />
+                            </a>
+                        ))}
+                    </div>
+                </div>
             </div>
 
-            <div className="text-[10px] md:text-xs uppercase tracking-widest font-bold text-white/20 text-center md:text-right" suppressHydrationWarning>
-                © {new Date().getFullYear()} Parth Rana <span className="mx-2">|</span> Built with Passion
+            <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div className="text-[10px] md:text-xs uppercase tracking-widest font-bold text-white/20" suppressHydrationWarning>
+                    © {new Date().getFullYear()} Parth Rana <span className="mx-2 hidden md:inline">|</span> Crafted with Code
+                </div>
+                <div className="flex gap-8">
+                    {['About', 'Projects', 'Contact'].map((item) => (
+                        <a key={item} href={`#${item.toLowerCase()}`} className="text-[10px] uppercase tracking-widest font-bold text-white/20 hover:text-white transition-colors">
+                            {item}
+                        </a>
+                    ))}
+                </div>
             </div>
         </footer>
     );

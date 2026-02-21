@@ -14,16 +14,20 @@ export const metadata: Metadata = {
   description: "3D Interactive Portfolio",
 };
 
+import SmoothScroll from "@/components/SmoothScroll";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${nunito_sans.variable} antialiased`}>
+    <html lang="en" className={`${nunito_sans.variable} antialiased scroll-smooth`}>
       <body suppressHydrationWarning>
-        {children}
-        <Footer />
+        <SmoothScroll>
+          {children}
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

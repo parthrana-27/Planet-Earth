@@ -29,7 +29,7 @@
 
     --radius: 0.5rem;
 
-    --color-bg-dark: #0b0d17;
+    --color-bg-dark: #000000;
     --color-bg-light: #f0f4f8;
     /* Backup for light mode if needed, though user wants space theme generally */
 
@@ -49,23 +49,13 @@
     --font-body: var(--font-nunito-sans), sans-serif;
 
     --section-spacing: 100px;
-}
-
-[data-theme='light'] {
-    /* If we strictly enforce space theme, light mode might just be a brighter version or map to the same deep space values 
-    For now, keeping it dark-centric as per "Space Theme" request 
- */
-    --color-bg-dark: #f0f4f8;
-    --color-text-main: #1a1a2e;
-    --color-text-muted: #555;
+    --dynamic-bg: #ffffff;
+    --dynamic-text: #000000;
 }
 
 body {
-    background-color: var(--color-bg-dark);
-    color: var(--color-text-main);
     font-family: var(--font-body);
     margin: 0;
-    /* consistent reset */
 }
 
 h1,

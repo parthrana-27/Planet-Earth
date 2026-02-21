@@ -31,16 +31,22 @@ const Education = () => {
 
     const educationData = [
         {
-            title: "Bachelor of Technology",
-            date: "2022 - Present",
-            subtitle: "Computer Science & Engineering",
-            description: "Focusing on software development, algorithms, and 3D web technologies."
+            title: "Institute of Technology, Nirma University",
+            date: "2023 - 2027",
+            subtitle: "B.Tech Computer Science & Engineering",
+            description: "Current CGPA: 8.74"
         },
         {
-            title: "High School",
-            date: "2020 - 2022",
-            subtitle: "Science Stream",
-            description: "Foundation in Physics, Chemistry, and Mathematics."
+            title: "Riverdale Academy, Surat",
+            date: "2021 - 2023",
+            subtitle: "HSC – Science",
+            description: "Result: 87.54%"
+        },
+        {
+            title: "R.S.M Poonawala School, Surat",
+            date: "2019 - 2021",
+            subtitle: "SSC",
+            description: "Result: 95%"
         }
     ];
 
@@ -57,16 +63,16 @@ const Education = () => {
                 <div ref={timelineRef} className="space-y-8 border-r-2 border-white/10 pr-8">
                     {educationData.map((item, index) => (
                         <div key={index} className="relative group text-right">
-                            <div className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm group-hover:bg-white/[0.08] transition-all">
+                            <div className="p-6 md:p-8 rounded-2xl border border-white/10 bg-white/10 backdrop-blur-md group-hover:bg-white/[0.15] transition-all">
                                 <h3 className="text-xl md:text-2xl font-bold text-white mb-2">{item.title}</h3>
-                                <span className="inline-block text-xs md:text-sm font-medium px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-3">
+                                <span className="inline-block text-xs md:text-sm font-medium px-3 py-1 rounded-full bg-white/10 text-inherit border border-white/20 mb-3">
                                     {item.date}
                                 </span>
-                                <p className="text-sm md:text-base font-semibold text-blue-100/90 mb-2">{item.subtitle}</p>
-                                <p className="text-xs md:text-sm text-blue-100/50 leading-relaxed">{item.description}</p>
+                                <p className="text-sm md:text-base font-semibold text-inherit opacity-90 mb-2">{item.subtitle}</p>
+                                <p className="text-xs md:text-sm text-inherit opacity-50 leading-relaxed">{item.description}</p>
                             </div>
                             {/* Timeline dot */}
-                            <div className="absolute top-1/2 -right-[41px] -translate-y-1/2 w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)] z-20" />
+                            <div className="absolute top-1/2 -right-[41px] -translate-y-1/2 w-4 h-4 rounded-full bg-black shadow-[0_0_15px_rgba(255,255,255,0.2)] z-20" />
                         </div>
                     ))}
                 </div>

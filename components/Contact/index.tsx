@@ -40,7 +40,7 @@ const Contact = () => {
                     Contact Me
                 </h2>
 
-                <div className="p-8 md:p-12 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl relative overflow-hidden group">
+                <div className="p-8 md:p-12 rounded-3xl border border-white/10 bg-white/10 backdrop-blur-lg shadow-2xl relative overflow-hidden group">
                     <form
                         ref={formRef}
                         action="https://formspree.io/f/YOUR_FORM_ID"
@@ -89,8 +89,8 @@ const Contact = () => {
                     </form>
 
                     {/* Background decoration */}
-                    <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -z-0 group-hover:bg-blue-500/20 transition-colors" />
-                    <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl -z-0 group-hover:bg-purple-500/20 transition-colors" />
+                    <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-black/20 rounded-full blur-3xl -z-0 group-hover:bg-black/30 transition-colors" />
+                    <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-gray-500/10 rounded-full blur-3xl -z-0 group-hover:bg-gray-500/20 transition-colors" />
                 </div>
             </div>
         </section>
