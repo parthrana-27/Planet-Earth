@@ -11,10 +11,7 @@ import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 import styles from "@/styles/Home.module.css";
-
-// ... existing code ...
 
 export default function Home() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -64,7 +61,6 @@ export default function Home() {
         opacity: 1,
         duration: 1
       }, "start")
-      // ... rest of animations ...
       .to(earthGroup.position, {
         x: 2,
         y: 0,
