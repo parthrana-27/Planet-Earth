@@ -55,7 +55,7 @@ const Contact = () => {
                                 name="name"
                                 required
                                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all"
-                                placeholder="John Doe"
+                                placeholder="Your Name"
                             />
                         </div>
                         <div className="space-y-2">
@@ -66,7 +66,7 @@ const Contact = () => {
                                 name="email"
                                 required
                                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all"
-                                placeholder="john@example.com"
+                                placeholder="Your email"
                             />
                         </div>
                         <div className="space-y-2">
