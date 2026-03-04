@@ -34,6 +34,20 @@ const Certifications = () => {
 
     const certifications = [
         {
+            title: "Problem Solving (Basic)",
+            issuer: "HackerRank",
+            date: "Jan 2026",
+            credentialId: "602341B61DEF",
+            image: "/certs/problem-solving.png"
+        },
+        {
+            title: "SQL (Basic)",
+            issuer: "HackerRank",
+            date: "Jan 2026",
+            credentialId: "0BE25B959B6D",
+            image: "/certs/sql.png"
+        },
+        {
             title: "MongoDB and the Document Model",
             issuer: "MongoDB",
             date: "Feb 2026",
@@ -49,26 +63,12 @@ const Certifications = () => {
             image: "/certs/nvidia.png"
         },
         {
-            title: "SQL (Basic)",
-            issuer: "HackerRank",
-            date: "Oct 2024",
-            credentialId: "0BE25B959B6D",
-            image: "/certs/hackerrank_sql.png"
-        },
-        {
             title: "OpenCV",
             issuer: "OpenCV University",
             date: "Sep 2024",
             credentialId: "2d15b3c298f04b0786ea35a1aa6fc40a",
             skills: ["Image Processing", "Computer Vision"],
             image: "/certs/opencv.png"
-        },
-        {
-            title: "Web with ml",
-            issuer: "GDG onCampus | Nirma University",
-            date: "Nov 2023",
-            skills: ["Machine Learning"],
-            image: "/certs/gdg_ml.png"
         }
     ];
 
@@ -195,7 +195,7 @@ const Certifications = () => {
                     </button>
 
                     <div
-                        className="relative w-full max-w-5xl aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-white/10"
+                        className="relative w-full max-w-3xl aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border border-white/10"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <Image
