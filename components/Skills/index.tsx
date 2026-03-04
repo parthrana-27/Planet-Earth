@@ -59,18 +59,18 @@ const Skills = () => {
         >
             <div className="w-full max-w-5xl">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-widest bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent inline-block">
+                    <h2 className="text-3xl md:text-5xl font-bold uppercase tracking-widest bg-gradient-to-b from-white via-white to-gray-500 bg-clip-text text-transparent inline-block">
                         SKILLS
                     </h2>
                 </div>
 
                 <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {skillCategories.map((cat, idx) => (
-                        <div key={idx} className="p-8 rounded-2xl border border-white/10 bg-white/10 backdrop-blur-md hover:bg-white/[0.15] transition-all group">
-                            <h3 className="text-lg font-bold text-black mb-6 uppercase tracking-wider underline underline-offset-8 decoration-gray-300">{cat.name}</h3>
+                        <div key={idx} className="p-8 rounded-2xl border border-white/10 bg-white/10 backdrop-blur-md hover:bg-white/[0.15] hover:border-white/20 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] transition-all duration-500 group">
+                            <h3 className="text-lg font-bold text-white mb-6 uppercase tracking-wider underline underline-offset-8 decoration-white/20">{cat.name}</h3>
                             <div className="flex flex-wrap gap-2">
                                 {cat.skills.map((skill, sIdx) => (
-                                    <span key={sIdx} className="px-3 py-1.5 rounded-lg border border-white/20 bg-black text-xs md:text-sm text-white opacity-80 group-hover:opacity-100 transition-opacity">
+                                    <span key={sIdx} className="px-3 py-1.5 rounded-lg border border-white/20 bg-white/5 text-xs md:text-sm text-white opacity-90 group-hover:opacity-100 transition-opacity">
                                         {skill}
                                     </span>
                                 ))}
@@ -83,8 +83,8 @@ const Skills = () => {
                     <h3 className="text-lg font-bold text-white mb-6 uppercase tracking-wider">Core Strengths</h3>
                     <div className="flex flex-wrap justify-center gap-4">
                         {coreStrengths.map((strength, idx) => (
-                            <span key={idx} className="flex items-center gap-2 text-sm md:text-base font-medium text-white/80">
-                                <span className="w-1.5 h-1.5 rounded-full bg-black shadow-[0_0_10px_rgba(255,255,255,0.4)]" />
+                            <span key={idx} className="flex items-center gap-2 text-sm md:text-base font-medium text-white">
+                                <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.6)]" />
                                 {strength}
                             </span>
                         ))}
