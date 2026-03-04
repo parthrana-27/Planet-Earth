@@ -8,6 +8,7 @@ import About from "@/components/About";
 import Education from "@/components/Education";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
+import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -123,6 +124,12 @@ export default function Home() {
         duration: 1
       }, "projects")
       .to(earthGroup.position, {
+        x: 2,
+        z: -2,
+        ease: "power1.inOut",
+        duration: 1
+      }, "certifications")
+      .to(earthGroup.position, {
         z: 0,
         x: 0,
         y: 0,
@@ -188,6 +195,7 @@ export default function Home() {
         <About />
         <Education />
         <Skills />
+        <Certifications />
         <Projects />
         <Contact />
       </div>

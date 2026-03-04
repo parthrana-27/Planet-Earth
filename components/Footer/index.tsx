@@ -58,7 +58,7 @@ const Footer = () => {
                     © {new Date().getFullYear()} Parth Rana <span className="mx-2 hidden md:inline">|</span> Crafted with Code
                 </div>
                 <div className="flex gap-8">
-                    {['About', 'Projects', 'Contact'].map((item) => (
+                    {['About', 'Certifications', 'Projects', 'Contact'].map((item) => (
                         <a key={item} href={`#${item.toLowerCase()}`} className="text-[10px] uppercase tracking-widest font-bold text-white/20 hover:text-white transition-colors">
                             {item}
                         </a>

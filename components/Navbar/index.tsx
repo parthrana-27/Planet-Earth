@@ -33,7 +33,7 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [lastScrollY]);
 
-    const navItems = ['About', 'Education', 'Skills', 'Projects', 'Contact'];
+    const navItems = ['About', 'Education', 'Skills', 'Certifications', 'Projects', 'Contact'];
 
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
         e.preventDefault();
