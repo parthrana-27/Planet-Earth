@@ -1,26 +1,16 @@
 export const projects = [
     {
-        id: "1",
-        title: "Project Alpha",
-        description: "A futuristic dashboard interface designed for data visualization. This project leverages Three.js and React to create an immersive analytics experience.",
-        content: "Detailed explanation of the project. We used advanced shaders for the graphs and WebGL for rendering the data points.",
-        image: "/projects/1.jpg",
-        technologies: ["React", "Three.js", "WebGL"]
+        id: "fake-news",
+        title: "Fake News Detection System",
+        description: "An AI-powered system designed to automatically classify news content as real or fake using natural language processing and machine learning.",
+        content: "The system takes raw news articles or headlines as input and processes them through a structured pipeline that includes text cleaning, tokenization, stopword removal, and stemming. The processed text is then transformed into numerical features using TF-IDF (Term Frequency–Inverse Document Frequency). A Logistic Regression model is trained on a labeled dataset, allowing it to learn patterns that distinguish fake news from legitimate information. This project showcases the practical use of machine learning in solving real-world problems and highlights the importance of responsible AI in the information age.",
+        technologies: ["Python", "NLP", "Machine Learning", "Logistic Regression", "TF-IDF", "Scikit-Learn"]
     },
     {
-        id: "2",
-        title: "Project Beta",
-        description: "E-commerce platform with 3D product view allowing users to inspect items from every angle.",
-        content: "Built with Next.js and Shopify API. The 3D viewer is a custom component optimized for mobile devices.",
-        image: "/projects/2.jpg",
-        technologies: ["Next.js", "Shopify", "React-Three-Fiber"]
-    },
-    {
-        id: "3",
-        title: "Project Gamma",
-        description: "AI-powered chat application with a holographic UI theme.",
-        content: "Integrated with OpenAI API. The UI mimics sci-fi interfaces with glassmorphism and neon accents.",
-        image: "/projects/3.jpg",
-        technologies: ["OpenAI", "Node.js", "Socket.io"]
+        id: "aqi-ga",
+        title: "Genetic Algorithm AQI Optimization",
+        description: "A soft computing approach that leverages Genetic Algorithms (GA) to optimize feature selection for Air Quality Index (AQI) prediction.",
+        content: "This project presents a system that utilizes real-world air quality data containing pollutant concentrations such as PM2.5, PM10, NO₂, CO, O₃, and SO₂. The Genetic Algorithm is employed to identify the most relevant subset of pollutants, represented as binary chromosomes, with fitness evaluated using a Random Forest model. Through evolutionary operations including selection, crossover, and mutation, the algorithm iteratively converges toward an optimal feature subset, enhancing model efficiency and interpretability in environmental data analysis.",
+        technologies: ["Genetic Algorithm", "Random Forest", "Python", "Feature Optimization", "Soft Computing", "Environmental AI"]
     }
 ];
