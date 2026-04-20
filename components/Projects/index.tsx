@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { cn } from "@/lib/utils";
 
-import { projects } from '@/data/projects';
+import { projects, type Project } from '@/data/projects';
 
 const Projects = () => {
     const sectionRef = useRef<HTMLElement>(null);
