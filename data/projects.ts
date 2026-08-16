@@ -14,29 +14,40 @@ export interface Project {
 
 export const projects: Project[] = [
     {
-        id: "fake-news",
-        title: "Fake News Detection System",
-        hook: "High-accuracy NLP pipeline identifying disinformation in real-time.",
-        metric: "94.2% Classification Accuracy",
-        description: "An AI-powered system designed to automatically classify news content as real or fake using natural language processing and machine learning.",
-        content: "The system takes raw news articles or headlines as input and processes them through a structured pipeline that includes text cleaning, tokenization, stopword removal, and stemming. The processed text is then transformed into numerical features using TF-IDF (Term Frequency–Inverse Document Frequency). A Logistic Regression model is trained on a labeled dataset, allowing it to learn patterns that distinguish fake news from legitimate information. This project showcases the practical use of machine learning in solving real-world problems and highlights the importance of responsible AI in the information age.",
-        technologies: ["Python", "NLP", "Machine Learning", "Logistic Regression", "TF-IDF", "Scikit-Learn"],
-        image: "/projects/fake-news.jpg",
-        github: "https://github.com/parthrana-27",
-        category: "Machine Learning & NLP"
+        id: "enterprise-rag",
+        title: "Enterprise RAG System",
+        hook: "Production-ready Retrieval-Augmented Generation for enterprise data.",
+        metric: "Millisecond latency with context-aware search",
+        description: "A full-stack AI application implementing Retrieval-Augmented Generation (RAG) to allow enterprises to query their internal documents securely using large language models.",
+        content: "Built with TypeScript, this system ingests, chunks, and vectorizes complex documents, storing embeddings in a high-performance vector database. It leverages modern LLMs to generate highly accurate responses, grounding all answers in the provided enterprise knowledge base to eliminate hallucinations. The interface is highly optimized for speed and reliability, featuring real-time streaming responses and conversation memory.",
+        technologies: ["TypeScript", "Next.js", "Vector DB", "LLMs", "RAG", "TailwindCSS"],
+        image: "/projects/rag.jpg",
+        github: "https://github.com/parthrana-27/Enterprise-RAG",
+        demo: "https://enterprise-rag-lime.vercel.app",
+        category: "Generative AI"
     },
     {
-        id: "aqi-ga",
-        title: "Genetic Algorithm AQI Optimization",
-        hook: "Evolutionary computing for optimal atmospheric feature selection.",
-        metric: "35% Feature Reduction with Enhanced Precision",
-        description: "A soft computing approach that leverages Genetic Algorithms (GA) to optimize feature selection for Air Quality Index (AQI) prediction.",
-        content: "This project presents a system that utilizes real-world air quality data containing pollutant concentrations such as PM2.5, PM10, NO₂, CO, O₃, and SO₂. The Genetic Algorithm is employed to identify the most relevant subset of pollutants, represented as binary chromosomes, with fitness evaluated using a Random Forest model. Through evolutionary operations including selection, crossover, and mutation, the algorithm iteratively converges toward an optimal feature subset, enhancing model efficiency and interpretability in environmental data analysis.",
-        technologies: ["Genetic Algorithm", "Random Forest", "Python", "Feature Optimization", "Soft Computing", "Environmental AI"],
-        image: "/projects/aqi.jpg",
-        github: "https://github.com/parthrana-27",
-        category: "Soft Computing & Optimization"
+        id: "devtrack",
+        title: "DevTrack",
+        hook: "Comprehensive agile issue tracking and project management suite.",
+        metric: "Streamlined sprint planning & velocity tracking",
+        description: "A robust Java-based backend application designed for software development teams to track issues, manage sprints, and collaborate efficiently.",
+        content: "DevTrack is architected using Java and modern enterprise frameworks to deliver a scalable project management solution. It features robust RESTful APIs for creating tickets, assigning tasks, progressing states via Kanban workflows, and generating team velocity metrics. The system emphasizes clean architecture and security, while a relational database guarantees ACID compliance for all transactions.",
+        technologies: ["Java", "Spring Boot", "PostgreSQL", "REST APIs", "Hibernate", "Agile"],
+        image: "/projects/devtrack.jpg",
+        github: "https://github.com/parthrana-27/devtrack",
+        category: "Enterprise Backend"
+    },
+    {
+        id: "ats-resume",
+        title: "ATS Resume Builder",
+        hook: "Intelligent resume generation to bypass Applicant Tracking Systems.",
+        metric: "98% ATS Parsability Score",
+        description: "A developer-focused web tool that generates cleanly formatted, highly parsable resumes optimized to pass modern automated recruiting filters.",
+        content: "Developed utilizing TypeScript and modern frontend frameworks, this application allows users to seamlessly input their professional experience, projects, and skills to dynamically generate a clean, ATS-compliant resume. The rendering engine ensures proper semantic structure and clean PDF generation, deliberately avoiding common pitfalls like complex tables or unreadable graphics that confuse ATS parsers.",
+        technologies: ["TypeScript", "Next.js", "React", "PDF Generation", "Tailwind CSS"],
+        image: "/projects/resume.jpg",
+        github: "https://github.com/parthrana-27/ats-resume",
+        category: "Full-Stack Web"
     }
 ];
-
-
