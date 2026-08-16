@@ -37,3 +37,69 @@ button {
     filter: brightness(140%);
   }
 }
+
+/* Ambient Lighting & Glow Utilities - Electric Blue & Violet */
+.ambient-glow-blue {
+  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.12) 0%, rgba(37, 99, 235, 0.04) 45%, transparent 70%);
+}
+
+.ambient-glow-violet {
+  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.10) 0%, rgba(124, 58, 237, 0.03) 45%, transparent 70%);
+}
+
+.ambient-glow-indigo {
+  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.12) 0%, rgba(79, 70, 229, 0.04) 45%, transparent 70%);
+}
+
+.ambient-glow-white {
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 70%);
+}
+
+
+/* Marquee Animation Utilities */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-left 32s linear infinite;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-right 32s linear infinite;
+}
+
+.pause-on-hover:hover .animate-marquee-left,
+.pause-on-hover:hover .animate-marquee-right {
+  animation-play-state: paused;
+}
+
+/* Studio Section Watermark */
+.section-watermark {
+  position: absolute;
+  font-weight: 900;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  letter-spacing: -0.05em;
+  font-family: inherit;
+  color: rgba(255, 255, 255, 0.03);
+}
