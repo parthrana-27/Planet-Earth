@@ -34,7 +34,7 @@ export const projects: Project[] = [
         description: "A high-performance project management platform built for modern engineering teams — combining intelligent issue tracking, collaborative workflows, and real-time project visibility in one powerful workspace.",
         content: "DevTrack is architected to deliver a scalable, enterprise-grade project management solution. It features intelligent issue tracking, collaborative workflows, Kanban state transitions, and real-time visibility metrics for modern engineering teams, ensuring high velocity and seamless team alignment.",
         technologies: ["Java", "Spring Boot", "TypeScript", "PostgreSQL", "REST APIs", "Agile"],
-        image: "/projects/devtrack.png",
+        image: "/projects/devtrack-app.png",
         github: "https://github.com/parthrana-27/devtrack",
         category: "Project Management Platform"
     },
@@ -46,7 +46,7 @@ export const projects: Project[] = [
         description: "Multi-agent LangGraph pipelines, vector similarity, and a transparent six-dimension scoring formula — so your team reviews signal, not noise.",
         content: "ATS Intelligence is a production-grade AI resume screening platform running 100% locally with sub-2s latency per resume. Powered by multi-agent LangGraph pipelines and vector similarity, it provides transparent 6-dimension candidate scoring and semantic matching to streamline recruitment workflows.",
         technologies: ["LangGraph", "Multi-Agent AI", "Vector Similarity", "TypeScript", "Next.js", "Tailwind CSS"],
-        image: "/projects/resume.png",
+        image: "/projects/ats-resume.png",
         github: "https://github.com/parthrana-27/ats-resume",
         category: "AI Recruitment Intelligence"
     }
