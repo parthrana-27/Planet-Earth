@@ -21,7 +21,7 @@ export const projects: Project[] = [
         description: "A full-stack AI application implementing Retrieval-Augmented Generation (RAG) to allow enterprises to query their internal documents securely using large language models.",
         content: "Built with TypeScript, this system ingests, chunks, and vectorizes complex documents, storing embeddings in a high-performance vector database. It leverages modern LLMs to generate highly accurate responses, grounding all answers in the provided enterprise knowledge base to eliminate hallucinations. The interface is highly optimized for speed and reliability, featuring real-time streaming responses and conversation memory.",
         technologies: ["TypeScript", "Next.js", "Vector DB", "LLMs", "RAG", "TailwindCSS"],
-        image: "/projects/rag.jpg",
+        image: "/projects/rag.png",
         github: "https://github.com/parthrana-27/Enterprise-RAG",
         demo: "https://enterprise-rag-lime.vercel.app",
         category: "Generative AI"
@@ -29,25 +29,25 @@ export const projects: Project[] = [
     {
         id: "devtrack",
         title: "DevTrack",
-        hook: "Comprehensive agile issue tracking and project management suite.",
-        metric: "Streamlined sprint planning & velocity tracking",
-        description: "A robust Java-based backend application designed for software development teams to track issues, manage sprints, and collaborate efficiently.",
-        content: "DevTrack is architected using Java and modern enterprise frameworks to deliver a scalable project management solution. It features robust RESTful APIs for creating tickets, assigning tasks, progressing states via Kanban workflows, and generating team velocity metrics. The system emphasizes clean architecture and security, while a relational database guarantees ACID compliance for all transactions.",
-        technologies: ["Java", "Spring Boot", "PostgreSQL", "REST APIs", "Hibernate", "Agile"],
-        image: "/projects/devtrack.jpg",
+        hook: "Ship Faster. Track Smarter.",
+        metric: "High-Performance Project Visibility & Workflows",
+        description: "A high-performance project management platform built for modern engineering teams — combining intelligent issue tracking, collaborative workflows, and real-time project visibility in one powerful workspace.",
+        content: "DevTrack is architected to deliver a scalable, enterprise-grade project management solution. It features intelligent issue tracking, collaborative workflows, Kanban state transitions, and real-time visibility metrics for modern engineering teams, ensuring high velocity and seamless team alignment.",
+        technologies: ["Java", "Spring Boot", "TypeScript", "PostgreSQL", "REST APIs", "Agile"],
+        image: "/projects/devtrack.png",
         github: "https://github.com/parthrana-27/devtrack",
-        category: "Enterprise Backend"
+        category: "Project Management Platform"
     },
     {
         id: "ats-resume",
-        title: "ATS Resume Builder",
-        hook: "Intelligent resume generation to bypass Applicant Tracking Systems.",
-        metric: "98% ATS Parsability Score",
-        description: "A developer-focused web tool that generates cleanly formatted, highly parsable resumes optimized to pass modern automated recruiting filters.",
-        content: "Developed utilizing TypeScript and modern frontend frameworks, this application allows users to seamlessly input their professional experience, projects, and skills to dynamically generate a clean, ATS-compliant resume. The rendering engine ensures proper semantic structure and clean PDF generation, deliberately avoiding common pitfalls like complex tables or unreadable graphics that confuse ATS parsers.",
-        technologies: ["TypeScript", "Next.js", "React", "PDF Generation", "Tailwind CSS"],
-        image: "/projects/resume.jpg",
+        title: "ATS Intelligence",
+        hook: "The recruiter who never sleeps. Production-grade AI resume screening.",
+        metric: "< 2s Parse Latency & 6-Dimension Scoring",
+        description: "Multi-agent LangGraph pipelines, vector similarity, and a transparent six-dimension scoring formula — so your team reviews signal, not noise.",
+        content: "ATS Intelligence is a production-grade AI resume screening platform running 100% locally with sub-2s latency per resume. Powered by multi-agent LangGraph pipelines and vector similarity, it provides transparent 6-dimension candidate scoring and semantic matching to streamline recruitment workflows.",
+        technologies: ["LangGraph", "Multi-Agent AI", "Vector Similarity", "TypeScript", "Next.js", "Tailwind CSS"],
+        image: "/projects/resume.png",
         github: "https://github.com/parthrana-27/ats-resume",
-        category: "Full-Stack Web"
+        category: "AI Recruitment Intelligence"
     }
 ];
